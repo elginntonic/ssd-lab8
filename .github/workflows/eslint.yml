@@ -19,13 +19,13 @@ jobs:
           cache: npm
 
       - name: Install Node.js dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Create reports directory
         run: mkdir -p reports
 
       - name: Install ESLint SARIF Formatter
-        run: npm install @microsoft/eslint-formatter-sarif --save-dev
+        run: npm install @microsoft/eslint-formatter-sarif --save-dev --legacy-peer-deps
 
       - name: Run ESLint with SARIF output
         run: npx eslint . --format @microsoft/eslint-formatter-sarif --output-file reports/eslint-results.sarif || true
